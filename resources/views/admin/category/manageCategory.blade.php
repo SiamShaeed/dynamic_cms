@@ -7,7 +7,7 @@
 @section('body')
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Category List</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -21,14 +21,18 @@
                             <th>Action</th>
                         </tr>
                     </thead>
+                    {{-- Category Show --}}
+                    @php($i = 1)
                     @foreach ($categories as $category)
                         <tbody>
                             <tr>
-                                <td>{{ $category->id }}</td>
+                                <td>{{ $i++ }}</td>
                                 <td>{{ $category->category_name }}</td>
                                 <td>{{ $category->category_description }}</td>
-                                <td>{{ $category->publication_status }}</td>
-                                <td>Edit | Delete</td>
+                                <td>{{ $category->publication_status == 1 ? 'Published' : 'Unpublished' }}</td>
+                                <td>
+                                    <a href="#">Edit</a> | <a href="#">Delete</a>
+                                </td>
                             </tr>
                         </tbody>
                     @endforeach
