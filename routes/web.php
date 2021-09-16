@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\frontendController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth; //siam
 
@@ -14,6 +15,7 @@ Route::post('/category/new-category', [CategoryController::class, 'newCategory']
 Route::get('/category/manage-category', [CategoryController::class, 'manageCategory'])->name('manage_category');
 Route::get('/category/edit-category/{id}', [CategoryController::class, 'editCategory'])->name('edit_category');
 Route::post('/category/update-category', [CategoryController::class, 'updateCategory'])->name('update_category');
+Route::get('/category/delete-category/{id}', [CategoryController::class, 'daleteCategory'])->name('delete_category');
 
 
 //For auth

@@ -43,6 +43,13 @@ class CategoryController extends Controller
         $categories->publication_status = $request->publication_status;
         $categories->save();
 
-        return redirect('/category/manage-category')->with('message', 'Data update successfully');
+        return redirect('/category/manage-category')->with('message', 'Category update successfully');
+    }
+
+    public function daleteCategory($id)
+    {
+        $categories = Category::find($id);
+        $categories->delete();
+        return redirect('/category/manage-category')->with('message', 'Category delete successfully');
     }
 }
