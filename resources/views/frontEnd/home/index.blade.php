@@ -1,4 +1,4 @@
-@extends('master')
+@extends('frontEnd.master')
 
 @section('title')
     Home
