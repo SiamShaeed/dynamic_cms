@@ -31,7 +31,8 @@
                                 <td>{{ $category->category_description }}</td>
                                 <td>{{ $category->publication_status == 1 ? 'Published' : 'Unpublished' }}</td>
                                 <td>
-                                    <a href="#">Edit</a> | <a href="#">Delete</a>
+                                    <a href="{{ route('edit_category', ['id' => $category->id]) }}">Edit</a> |
+                                    <a href="#">Delete</a>
                                 </td>
                             </tr>
                         </tbody>
