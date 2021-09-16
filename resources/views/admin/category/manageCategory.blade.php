@@ -13,6 +13,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
+                        <h4 class="text-center">{{ Session::get('message') }}</h4>
                         <tr>
                             <th>SL NO</th>
                             <th>Category Name</th>

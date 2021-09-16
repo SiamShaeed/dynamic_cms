@@ -10,13 +10,14 @@
             <div class="jumbotron">
                 {{-- Category Insert message --}}
                 <h4 class="text-center">{{ Session::get('message') }}</h4>
-                <form action="{{ route('new_category') }}" method="POST">
+                <form action="{{ route('update_category') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label class="control-label col-md-3">Category Name</label>
                         <div class="col-md-9">
                             <input type="text" name="category_name" value="{{ $categories->category_name }}"
                                 class="form-control">
+                            <input type="text" name="id" value="{{ $categories->id }}" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">

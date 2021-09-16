@@ -13,6 +13,7 @@ Route::get('/category/add-category', [CategoryController::class, 'addCategory'])
 Route::post('/category/new-category', [CategoryController::class, 'newCategory'])->name('new_category');
 Route::get('/category/manage-category', [CategoryController::class, 'manageCategory'])->name('manage_category');
 Route::get('/category/edit-category/{id}', [CategoryController::class, 'editCategory'])->name('edit_category');
+Route::post('/category/update-category', [CategoryController::class, 'updateCategory'])->name('update_category');
 
 
 //For auth

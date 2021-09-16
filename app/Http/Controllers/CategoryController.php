@@ -13,13 +13,13 @@ class CategoryController extends Controller
         return view('admin.category.addCategory');
     }
 
-    public function newCategory(Request $request)    //New category create
+    public function newCategory(Request $request)       //New category create
     {
-        Category::saveCategoryInfo($request);        //link Category model
+        Category::saveCategoryInfo($request);           //link Category model
         return redirect('/category/add-category')->with('message', 'Category insert Successfully');
     }
 
-    public function manageCategory()                //Show category
+    public function manageCategory()                    //Show category
     {
         $categories = Category::all();
         return view('admin.category.manageCategory', [
@@ -33,5 +33,16 @@ class CategoryController extends Controller
         return view('admin.category.editCategory', [
             'categories' => $categories
         ]);
+    }
+
+    public function updateCategory(Request $request)      //Data Update
+    {
+        $categories = Category::find($request->id);        //match database id with input field id
+        $categories->category_name = $request->category_name;
+        $categories->category_description = $request->category_description;
+        $categories->publication_status = $request->publication_status;
+        $categories->save();
+
+        return redirect('/category/manage-category')->with('message', 'Data update successfully');
     }
 }
