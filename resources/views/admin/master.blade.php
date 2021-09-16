@@ -67,7 +67,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('add_category') }}">Add Category</a>
-                        <a class="collapse-item" href="cards.html">Manage Category</a>
+                        <a class="collapse-item" href="{{ route('manage_category') }}">Manage Category</a>
                     </div>
                 </div>
             </li>

@@ -15,7 +15,15 @@ class CategoryController extends Controller
 
     public function newCategory(Request $request)
     {
-        Category::saveCategoryInfo($request); //linke Category model
+        Category::saveCategoryInfo($request);       //link Category model
         return redirect('/category/add-category')->with('message', 'Category insert Successfully');
+    }
+
+    public function manageCategory() //Show category
+    {
+        $categories = Category::all();
+        return view('admin.category.manageCategory', [
+            'categories' => $categories
+        ]);
     }
 }
