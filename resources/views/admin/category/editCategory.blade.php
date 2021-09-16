@@ -17,7 +17,7 @@
                         <div class="col-md-9">
                             <input type="text" name="category_name" value="{{ $categories->category_name }}"
                                 class="form-control">
-                            <input type="text" name="id" value="{{ $categories->id }}" class="form-control">
+                            <input type="hidden" name="id" value="{{ $categories->id }}" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
