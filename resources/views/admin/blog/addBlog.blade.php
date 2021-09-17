@@ -10,14 +10,15 @@
             <div class="jumbotron ">
                 {{-- Category Insert message --}}
                 <h4 class="text-center">{{ Session::get('message') }}</h4>
-                <form action="{{ route('new_category') }}" method="POST">
+                <form action="{{ route('new_blog') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label class="control-label col-md-3">Category Name</label>
                         <div class="col-md-9">
-                            <select name="" class="form-control">
+                            <select name="category_name" class="form-control">
                                 @foreach ($categories as $category)
-                                    <option value="">{{ $category->category_name }}</option>
+                                    <option value="{{ $category->category_name }}">{{ $category->category_name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
