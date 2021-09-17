@@ -33,10 +33,11 @@
                                 <td>{{ $category->publication_status == 1 ? 'Published' : 'Unpublished' }}</td>
                                 <td>
                                     <a href="{{ route('edit_category', ['id' => $category->id]) }}">Edit</a> |
-                                    <a href="#" class="delete-btn">Delete</a>
-                                    <form id="deleteCategoryForm" action="{{ route('delete_category') }}" method="POST">
+                                    <a href="#" id="{{ $category->id }}" class="delete-btn">Delete</a>
+                                    <form id="deleteCategoryForm{{ $category->id }}"
+                                        action="{{ route('delete_category') }}" method="POST">
                                         @csrf
-                                        <input type="hidden" name="id" value="{{ $category->id }}">
+                                        <input type="hidden" value="{{ $category->id }}" name="id">
                                     </form>
                                 </td>
                             </tr>
