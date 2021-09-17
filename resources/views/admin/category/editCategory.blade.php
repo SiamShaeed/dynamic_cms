@@ -30,10 +30,13 @@
                     <div class="form-group">
                         <label class="control-label col-md-3">Publications Status</label>
                         <div class="col-md-9">
-                            <label><input type="radio" {{ $categories->publications_status == 1 ? 'checked' : '' }}
-                                    name="publication_status" value="1"> Published</label>
-                            <label><input type="radio" {{ $categories->publication_status == 1 ? 'checked' : '' }}
-                                    name="publication_status" value="0"> Unpublished</label>
+                            <label>
+                                <input type="radio" name="publication_status" value="1"
+                                    {{ $categories->publication_status == 1 ? 'Checked' : ' ' }}> Published
+                            </label>
+                            <label><input type="radio" name="publication_status" value="0"
+                                    {{ $categories->publication_status == 0 ? 'Checked' : ' ' }}> Unpublished
+                            </label>
                         </div>
                     </div>
                     <div class="form-group">

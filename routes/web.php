@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\frontendController;
 use App\Models\Category;
@@ -16,6 +17,9 @@ Route::get('/category/manage-category', [CategoryController::class, 'manageCateg
 Route::get('/category/edit-category/{id}', [CategoryController::class, 'editCategory'])->name('edit_category');
 Route::post('/category/update-category', [CategoryController::class, 'updateCategory'])->name('update_category');
 Route::post('/category/delete-category', [CategoryController::class, 'daleteCategory'])->name('delete_category');
+
+//Blog
+Route::get('/add-blog', [BlogController::class, 'blogController'])->name('add_blog');
 
 
 //For auth
