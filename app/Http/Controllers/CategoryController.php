@@ -46,9 +46,9 @@ class CategoryController extends Controller
         return redirect('/category/manage-category')->with('message', 'Category update successfully');
     }
 
-    public function daleteCategory($id)                 //Category delete
+    public function daleteCategory(Request $request)                 //Category delete
     {
-        $categories = Category::find($id);
+        $categories = Category::find($request->id);
         $categories->delete();
         return redirect('/category/manage-category')->with('message', 'Category delete successfully');
     }

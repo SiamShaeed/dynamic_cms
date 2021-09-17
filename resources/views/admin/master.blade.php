@@ -437,6 +437,15 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('admin/js/demo/chart-pie-demo.js') }}"></script>
+    <script>
+        $('.delete-btn').click(function() {
+            event.preventDefault();
+            var check = confirm('Are you sure to delete this!!!');
+            if (check) {
+                document.getElementById('deleteCategoryForm').submit();
+            }
+        });
+    </script>
 
 </body>
 
