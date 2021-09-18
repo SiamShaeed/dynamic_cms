@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -39,7 +40,12 @@ class BlogController extends Controller
 
     public function manageBlog()                //Blog Show
     {
-        $blogs = Blog::all();
-        return view('admin.blog.manageBlog');
+        $blogs = DB::table('blogs')
+            ->join('categories', 'blogs.category_id', '=', 'categories.id')
+            ->select('blogs.*', 'categories.category_name')
+            ->get();
+        return view('admin.blog.manageBlog', [
+            'blogs' => $blogs
+        ]);
     }
 }

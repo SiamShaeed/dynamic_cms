@@ -24,24 +24,24 @@
                         </tr>
                     </thead>
                     {{-- Blow Show --}}
-
-                    @foreach ($categories as $category)
+                    @php($i = 1)
+                    @foreach ($blogs as $blog)
                         <tbody>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                {{-- <td>
-                                    <a href="{{ route('edit_category', ['id' => $category->id]) }}">Edit</a> |
-                                    <a href="#" id="{{ $category->id }}" class="delete-btn">Delete</a>
-                                    <form id="deleteCategoryForm{{ $category->id }}"
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $blog->category_name }}</td>
+                                <td>{{ $blog->blog_title }}</td>
+                                <td><img src="{{ asset($blog->blog_image) }}" alt="" height="100" width="150"></td>
+                                <td>{{ $blog->publication_status == 1 ? 'Published' : 'Unpublished' }}</td>
+                                <td>
+                                    <a href="{{ route('edit_category', ['id' => $blog->id]) }}">Edit</a> |
+                                    <a href="#" id="{{ $blog->id }}" class="delete-btn">Delete</a>
+                                    <form id="deleteCategoryForm{{ $blog->id }}"
                                         action="{{ route('delete_category') }}" method="POST">
                                         @csrf
-                                        <input type="hidden" value="{{ $category->id }}" name="id">
+                                        <input type="hidden" value="{{ $blog->id }}" name="id">
                                     </form>
-                                </td> --}}
+                                </td>
                             </tr>
                         </tbody>
                     @endforeach
