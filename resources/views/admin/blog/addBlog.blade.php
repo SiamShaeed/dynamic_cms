@@ -10,14 +10,14 @@
             <div class="jumbotron ">
                 {{-- Category Insert message --}}
                 <h4 class="text-center">{{ Session::get('message') }}</h4>
-                <form action="{{ route('new_blog') }}" method="POST">
+                <form action="{{ route('new_blog') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label class="control-label col-md-3">Category Name</label>
                         <div class="col-md-9">
-                            <select name="category_name" class="form-control">
+                            <select name="category_id" class="form-control">
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->category_name }}">{{ $category->category_name }}
+                                    <option value="{{ $category->id }}">{{ $category->category_name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -38,7 +38,7 @@
                     <div class="form-group">
                         <label class="control-label col-md-3">Blog Long Description</label>
                         <div class="col-md-9">
-                            <textarea name="blog_long_desc" cols="89" rows="3"></textarea>
+                            <textarea name="blog_long_desc" id="editor" cols="89" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="form-group">

@@ -82,7 +82,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('add_blog') }}">Add Blog</a>
-                        <a class="collapse-item" href="utilities-border.html">Managee Blog</a>
+                        <a class="collapse-item" href="{{route('manage_blog')}}">Managee Blog</a>
                     </div>
                 </div>
             </li>
@@ -433,6 +433,10 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('admin/js/demo/chart-pie-demo.js') }}"></script>
+    {{-- ck editor --}}
+    <script src="{{ asset('admin/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('admin/ckeditor/samples/js/sample.js') }}"></script>
+
     <script>
         $('.delete-btn').click(function() {
             event.preventDefault();
@@ -442,6 +446,10 @@
                 document.getElementById('deleteCategoryForm' + categoryId).submit();
             }
         });
+    </script>
+    {{-- Ck Editor --}}
+    <script>
+        initSample();
     </script>
 
 </body>
