@@ -34,13 +34,15 @@
                                 <td><img src="{{ asset($blog->blog_image) }}" alt="" height="100" width="150"></td>
                                 <td>{{ $blog->publication_status == 1 ? 'Published' : 'Unpublished' }}</td>
                                 <td>
-                                    <a href="{{ route('edit_category', ['id' => $blog->id]) }}">Edit</a> |
-                                    <a href="#" id="{{ $blog->id }}" class="delete-btn">Delete</a>
-                                    <form id="deleteCategoryForm{{ $blog->id }}"
-                                        action="{{ route('delete_category') }}" method="POST">
+                                    <a href="{{ route('edit_blog', ['id' => $blog->id]) }}">Edit</a> |
+                                    {{-- Delete --}}
+
+                                    {{-- <a href="#"
+                                        onclick="event.preventDefault(); document.getElementById('deleteBlogForm').submit();">Delete</a>
+                                    <form id="deleteBlogForm" action="{{ route('delete_blog') }}" method="POST">
                                         @csrf
                                         <input type="hidden" value="{{ $blog->id }}" name="id">
-                                    </form>
+                                    </form> --}}
                                 </td>
                             </tr>
                         </tbody>

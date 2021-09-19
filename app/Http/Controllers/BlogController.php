@@ -48,4 +48,17 @@ class BlogController extends Controller
             'blogs' => $blogs
         ]);
     }
+
+    public function editBlog($id)              //Blog edit
+    {
+        $categories = Category::where('publication_status', 1)->get();
+        return view('admin.blog.editBlog', [
+            'categories' => $categories,
+            'blog'  => Blog::find($id)
+        ]);
+    }
+
+    public function updateBlog($id)
+    {
+    }
 }
