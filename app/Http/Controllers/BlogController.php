@@ -61,8 +61,8 @@ class BlogController extends Controller
     public function updateBlog(Request $request)
     {
         $blogimage = $request->file('blog_img');
+        $blog = Blog::find($request->id);
         if ($blogimage) {
-            $blog = Blog::find($request->id);
             // delete image
             unlink($blog->blog_image);
             // set image save directions
@@ -79,8 +79,6 @@ class BlogController extends Controller
             $blog->save();
             return redirect('blog/manage-blog')->with('message', 'Blog Update Successfully');
         } else {
-            $blog = Blog::find($request->id);
-
             $blog->category_id        = $request->category_id;
             $blog->blog_title         = $request->blog_title;
             $blog->blog_short_desc    = $request->blog_short_desc;
