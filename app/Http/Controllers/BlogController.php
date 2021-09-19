@@ -58,7 +58,36 @@ class BlogController extends Controller
         ]);
     }
 
-    public function updateBlog($id)
+    public function updateBlog(Request $request)
     {
+        $blogimage = $request->file('blog_img');
+        if ($blogimage) {
+            $blog = Blog::find($request->id);
+            // delete image
+            unlink($blog->blog_image);
+            // set image save directions
+            $imageName = $blogimage->getClientOriginalName();
+            $directory = 'blog-image/';
+            $blogimage->move($directory, $imageName);
+            // image save database
+            $blog->category_id        = $request->category_id;
+            $blog->blog_title         = $request->blog_title;
+            $blog->blog_short_desc    = $request->blog_short_desc;
+            $blog->blog_long_desc     = $request->blog_long_desc;
+            $blog->blog_image         = $directory . $imageName;
+            $blog->publication_status = $request->publication_status;
+            $blog->save();
+            return redirect('blog/manage-blog')->with('message', 'Blog Update Successfully');
+        } else {
+            // $blog = Blog::find($request->id);
+
+            // $blog->category_id        = $request->category_id;
+            // $blog->blog_title         = $request->blog_title;
+            // $blog->blog_short_desc    = $request->blog_short_desc;
+            // $blog->blog_long_desc     = $request->blog_long_desc;
+            // $blog->publication_status = $request->publication_status;
+            // $blog->save();
+            // return redirect('blog/manage-blog')->with('message', 'Blog Update Successfully');
+        }
     }
 }

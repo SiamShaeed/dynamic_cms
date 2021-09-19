@@ -11,7 +11,7 @@
                 <h5 class="text-center">Edit Blog Info</h5>
                 {{-- Category Insert message --}}
                 <h4 class="text-center">{{ Session::get('message') }}</h4>
-                <form action="{{ route('update_blog') }}" method="POST" name="editBlogForm" enctype="multipart/form-data">
+                <form action="{{ route('update_blog') }}" method="post" name="editBlogForm" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label class="control-label col-md-3">Category Name</label>
@@ -28,6 +28,7 @@
                         <label class="control-label col-md-3">Blog Title</label>
                         <div class="col-md-9">
                             <input type="text" name="blog_title" class="form-control" value="{{ $blog->blog_title }}">
+                            <input type="hidden" name="id" class="form-control" value="{{ $blog->id }}">
                         </div>
                     </div>
                     <div class="form-group">
