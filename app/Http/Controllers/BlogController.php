@@ -79,15 +79,15 @@ class BlogController extends Controller
             $blog->save();
             return redirect('blog/manage-blog')->with('message', 'Blog Update Successfully');
         } else {
-            // $blog = Blog::find($request->id);
+            $blog = Blog::find($request->id);
 
-            // $blog->category_id        = $request->category_id;
-            // $blog->blog_title         = $request->blog_title;
-            // $blog->blog_short_desc    = $request->blog_short_desc;
-            // $blog->blog_long_desc     = $request->blog_long_desc;
-            // $blog->publication_status = $request->publication_status;
-            // $blog->save();
-            // return redirect('blog/manage-blog')->with('message', 'Blog Update Successfully');
+            $blog->category_id        = $request->category_id;
+            $blog->blog_title         = $request->blog_title;
+            $blog->blog_short_desc    = $request->blog_short_desc;
+            $blog->blog_long_desc     = $request->blog_long_desc;
+            $blog->publication_status = $request->publication_status;
+            $blog->save();
+            return redirect('blog/manage-blog')->with('message', 'Blog Update Successfully');
         }
     }
 }
