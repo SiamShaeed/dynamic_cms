@@ -90,10 +90,10 @@ class BlogController extends Controller
         }
     }
 
-    public function deleteBlog(Request $request)        //Delete Blog
+    public function deleteBlog(Request $request)           //Delete Blog
     {
         $blog = Blog::find($request->id);
-        unlink($blog->blog_image);
+        unlink($blog->blog_image);  //delete image
         $blog->delete();
         return redirect('/blog/manage-blog')->with('message', 'Blog delete successfully');
     }

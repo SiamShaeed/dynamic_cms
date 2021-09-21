@@ -7,7 +7,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth; //siam
 
-// FrontEnd
+// Home Page
 Route::get('/', [frontendController::class, 'index'])->name('index');
 
 // Category
