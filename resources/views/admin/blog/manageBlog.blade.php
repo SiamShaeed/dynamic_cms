@@ -34,6 +34,7 @@
                                 <td><img src="{{ asset($blog->blog_image) }}" alt="" height="100" width="150"></td>
                                 <td>{{ $blog->publication_status == 1 ? 'Published' : 'Unpublished' }}</td>
                                 <td>
+                                    {{-- Edit Blog --}}
                                     <a href="{{ route('edit_blog', ['id' => $blog->id]) }}">Edit</a> |
 
                                     {{-- Delete --}}
