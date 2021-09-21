@@ -82,7 +82,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('add_blog') }}">Add Blog</a>
-                        <a class="collapse-item" href="{{route('manage_blog')}}">Managee Blog</a>
+                        <a class="collapse-item" href="{{ route('manage_blog') }}">Managee Blog</a>
                     </div>
                 </div>
             </li>
@@ -438,6 +438,7 @@
     <script src="{{ asset('admin/ckeditor/samples/js/sample.js') }}"></script>
 
     <script>
+        // for category delete
         $('.delete-btn').click(function() {
             event.preventDefault();
             var categoryId = $(this).attr('id');
