@@ -20,10 +20,16 @@ Route::post('/category/delete-category', [CategoryController::class, 'daleteCate
 
 //Blog
 Route::get('/blog/add-blog', [BlogController::class, 'addBlog'])->name('add_blog');
+//Add Blog
 Route::post('/blog//new-blog', [BlogController::class, 'newBlog'])->name('new_blog');
+//Manage Blog
 Route::get('/blog/manage-blog', [BlogController::class, 'manageBlog'])->name('manage_blog');
+//Edit Blog
 Route::get('/blog/edit-blog/{id}', [BlogController::class, 'editBlog'])->name('edit_blog');
+//Update Blog
 Route::post('/blog/update-blog', [BlogController::class, 'updateBlog'])->name('update_blog');
+// Delete Blog
+Route::post('/blog/delete-blog', [BlogController::class, 'deleteBlog'])->name('delete_blog');
 
 
 //For auth

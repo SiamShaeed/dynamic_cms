@@ -35,14 +35,14 @@
                                 <td>{{ $blog->publication_status == 1 ? 'Published' : 'Unpublished' }}</td>
                                 <td>
                                     <a href="{{ route('edit_blog', ['id' => $blog->id]) }}">Edit</a> |
-                                    {{-- Delete --}}
 
-                                    {{-- <a href="#"
+                                    {{-- Delete --}}
+                                    <a href="#"
                                         onclick="event.preventDefault(); document.getElementById('deleteBlogForm').submit();">Delete</a>
                                     <form id="deleteBlogForm" action="{{ route('delete_blog') }}" method="POST">
                                         @csrf
                                         <input type="hidden" value="{{ $blog->id }}" name="id">
-                                    </form> --}}
+                                    </form>
                                 </td>
                             </tr>
                         </tbody>

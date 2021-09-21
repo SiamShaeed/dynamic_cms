@@ -27,12 +27,12 @@ class BlogController extends Controller
 
         //For blog save on database
         $blogs = new Blog();
-        $blogs->category_id = $request->category_id;
-        $blogs->blog_title = $request->blog_title;
-        $blogs->blog_short_desc = $request->blog_short_desc;
-        $blogs->blog_long_desc = $request->blog_long_desc;
-        $blogs->blog_image = $directory . $imageName;
-        $blogs->publication_status = $request->publication_status;
+        $blogs->category_id         = $request->category_id;
+        $blogs->blog_title          = $request->blog_title;
+        $blogs->blog_short_desc     = $request->blog_short_desc;
+        $blogs->blog_long_desc      = $request->blog_long_desc;
+        $blogs->blog_image          = $directory . $imageName;
+        $blogs->publication_status  = $request->publication_status;
         $blogs->save();
 
         return redirect('/blog/add-blog')->with('message', 'Blog save successfully');
@@ -43,6 +43,7 @@ class BlogController extends Controller
         $blogs = DB::table('blogs')
             ->join('categories', 'blogs.category_id', '=', 'categories.id')
             ->select('blogs.*', 'categories.category_name')
+            ->orderBy('blogs.id', 'desc')
             ->get();
         return view('admin.blog.manageBlog', [
             'blogs' => $blogs
@@ -58,7 +59,7 @@ class BlogController extends Controller
         ]);
     }
 
-    public function updateBlog(Request $request)
+    public function updateBlog(Request $request)    //Blog update
     {
         $blogimage = $request->file('blog_img');
         $blog = Blog::find($request->id);
@@ -87,5 +88,13 @@ class BlogController extends Controller
             $blog->save();
             return redirect('blog/manage-blog')->with('message', 'Blog Update Successfully');
         }
+    }
+
+    public function deleteBlog(Request $request)        //Delete Blog
+    {
+        $blog = Blog::find($request->id);
+        unlink($blog->blog_image);
+        $blog->delete();
+        return redirect('/blog/manage-blog')->with('message', 'Blog delete successfully');
     }
 }
