@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth; //siam
 // Home Page
 Route::get('/', [frontendController::class, 'index'])->name('index');
 Route::get('/category-blog/{id}', [frontendController::class, 'categoryBlog'])->name('categoryBlog');
+Route::get('/category-detais/{id}', [frontendController::class, 'blogDetails'])->name('blogDetails');
 
 // Category
 Route::get('/category/add-category', [CategoryController::class, 'addCategory'])->name('add_category');

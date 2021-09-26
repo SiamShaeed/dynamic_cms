@@ -24,4 +24,10 @@ class frontendController extends Controller
             'blogs' => Blog::where('category_id', $id)->where('publication_status', 1)->get() //category post on menu
         ]);
     }
+
+    public function blogDetails($id){
+        return view('frontEnd.home.blogDetails',[
+            'categorys' =>   Category::where('publication_status', 1)->get(),
+        ]);
+    }
 }
