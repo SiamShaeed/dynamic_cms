@@ -109,14 +109,14 @@
                         <div class="card h-100 shadow border-0">
                             <img class="card-img-top" src="{{ asset($blog->blog_image) }}" alt="..." height="200" />
                             <div class="card-body p-4">
-                                <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                <a class="text-decoration-none link-dark">
                                     <h5 class="card-title mb-3">{{ $blog->blog_title }}</h5>
                                 </a>
                                 <p class="card-text mb-0">{{ $blog->blog_short_desc }}</p>
                             </div>
                             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                 <div class="d-flex align-items-end justify-content-between">
-                                    <a href="#" class="btn btn-success">See More</a>
+                                    <a href="{{route('blogDetails',['id' => $blog->id])}}" class="btn btn-success">See More</a>
                                 </div>
                             </div>
                         </div>
