@@ -26,8 +26,10 @@ class frontendController extends Controller
     }
 
     public function blogDetails($id){
+        $findBlog = Blog::find($id);
         return view('frontEnd.home.blogDetails',[
             'categorys' =>   Category::where('publication_status', 1)->get(),
+            'blog'     =>  Blog::find($id)
         ]);
     }
 }
