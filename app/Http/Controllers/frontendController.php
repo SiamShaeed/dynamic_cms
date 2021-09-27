@@ -32,4 +32,8 @@ class frontendController extends Controller
             'blog'     =>  Blog::find($id)
         ]);
     }
+
+    public function logoSetting(){  //Logo setting
+        return view('admin.frontEndSetting.logoSetting');
+    }
 }
