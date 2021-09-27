@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\logo;
 use Illuminate\Http\Request;
 
 class frontendController extends Controller
@@ -35,5 +36,20 @@ class frontendController extends Controller
 
     public function logoSetting(){  //Logo setting
         return view('admin.frontEndSetting.logoSetting');
+    }
+
+    public function logoSave(Request $request){
+        // For image recive by from
+        $logo = $request->file('logo_image');
+        $logoName = $logo->getClientOriginalName();
+        $directory = 'logo-image/';
+        $logo->move($directory, $logoName);
+
+        //For logo save on database
+        $logoSave = new logo();
+        $logoSave->logo_title       =   $request->logo_title;
+        $logoSave->logo_image       =   $request->logo_image;
+        $logoSave->save();
+        return redirect('logo-setting')->with('message', 'Logo save successfuly');
     }
 }

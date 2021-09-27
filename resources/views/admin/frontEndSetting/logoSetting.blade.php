@@ -1,4 +1,4 @@
-@extends('admin.master');
+@extends('admin.master')
 
 @section('title')
     Logo Setting
@@ -12,23 +12,23 @@
                 {{-- Category Insert message --}}
                 <h4 class="text-center">{{ Session::get('message') }}</h4>
                 <h3 class="text-center mb-lg-5">Logo Setting</h3>
-                <form action="{{ route('new_blog') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('logo_save') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label class="control-label">Add Logo Title</label>
                         <div class="col-md-9">
-                            <input type="text" name="blog_title" class="form-control">
+                            <input type="text" name="logo_title" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Choose Logo Image</label>
                         <div class="col-md-9">
-                            <input type="file" name="blog_img" accept="image/*">
+                            <input type="file" name="logo_image" accept="image/*">
                         </div>
                     </div>
                     <div class="form-grou mt-5">
                         <div class="col-md-9">
-                            <input type="submit" class="btn btn-success btn-block" value="Save Blog Info">
+                            <input type="submit" class="btn btn-success btn-block" value="Published Logo">
                         </div>
                     </div>
                 </form>
