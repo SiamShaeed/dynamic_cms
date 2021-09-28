@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class logo extends Model
+class Logo extends Model
 {
     use HasFactory;
     protected $fillable = ['logo_title', 'logo_image'];
