@@ -87,6 +87,8 @@
                 </div>
             </li>
 
+
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -107,12 +109,22 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Home Page</h6>
                         <a class="collapse-item" href="{{route('logo_setting')}}">Logo Setting</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <a class="collapse-item" href="#">Register</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#HomeSliderInfo"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Slider Info</span>
+                </a>
+                <div id="HomeSliderInfo" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('add_blog') }}">Add Slider Info</a>
+                        <a class="collapse-item" href="{{ route('manage_blog') }}">Manage Slider Info</a>
                     </div>
                 </div>
             </li>
