@@ -14,6 +14,8 @@ Route::get('/category-detais/{id}', [frontendController::class, 'blogDetails'])-
 Route::get('/logo-setting', [frontendController::class, 'logoSetting'])->name('logo_setting');
 Route::post('/logo-save', [frontendController::class, 'logoSave'])->name('logo_save');
 
+//Header
+Route::get('/header-page',[frontendController::class, 'headerPage'])->name('add_header');
 
 // Category
 Route::get('/category/add-category', [CategoryController::class, 'addCategory'])->name('add_category');

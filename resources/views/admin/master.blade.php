@@ -101,7 +101,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-home"></i>
                     <span>FrontEnd Setting</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
@@ -123,7 +123,7 @@
                 <div id="HomeSliderInfo" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('add_blog') }}">Add Slider Info</a>
+                        <a class="collapse-item" href="{{route('add_header')}}">Add Slider Info</a>
                         <a class="collapse-item" href="{{ route('manage_blog') }}">Manage Slider Info</a>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
                     alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components,
                     and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
+                <a class="btn btn-success btn-sm" href="#">Upgrade to
                     Pro!</a>
             </div>
 

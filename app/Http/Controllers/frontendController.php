@@ -59,4 +59,10 @@ class frontendController extends Controller
         $logoSave->save();
         return redirect('logo-setting')->with('message', 'Logo save successfuly');
     }
+
+    public function headerPage(){
+        return view('admin.header.header',[
+            'categories' =>   Category::where('publication_status', 1)->get(),
+        ]);
+    }
 }
