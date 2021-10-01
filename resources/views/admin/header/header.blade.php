@@ -10,7 +10,7 @@
             <div class="jumbotron ">
                 {{-- Category Insert message --}}
                 <h4 class="text-center">{{ Session::get('message') }}</h4>
-                <form action="{{ route('new_blog') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('new_header') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label class="control-label col-md-3">Header Title</label>
@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <label class="control-label col-md-3">Header Description</label>
                         <div class="col-md-9">
-                            <textarea name="header_description" cols="89" rows="3"></textarea>
+                            <textarea name="header_content" cols="89" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="form-group">

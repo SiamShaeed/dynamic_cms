@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Logo;
+use App\Models\Header;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,8 +13,8 @@ class frontendController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::where('publication_status', 1)->get();   //frontend blog show
-        $category = Category::where('publication_status', 1)->get();   //menu show from category
+        $blogs = Blog::where('publication_status', 1)->get();            //frontend blog show
+        $category = Category::where('publication_status', 1)->get();        //menu show from category
         $logo = Logo::latest('id')->first();
         return view('frontEnd.home.index',[
             'blogs' => $blogs,
@@ -32,7 +33,7 @@ class frontendController extends Controller
         ]);
     }
 
-    public function blogDetails($id){   //blog details
+    public function blogDetails($id){           //blog details
         $findBlog = Blog::find($id);
         return view('frontEnd.home.blogDetails',[
             'categorys' =>   Category::where('publication_status', 1)->get(),
@@ -41,7 +42,7 @@ class frontendController extends Controller
         ]);
     }
 
-    public function logoSetting(){  //Logo setting
+    public function logoSetting(){          //Logo setting
         return view('admin.frontEndSetting.logoSetting');
     }
 
@@ -60,9 +61,23 @@ class frontendController extends Controller
         return redirect('logo-setting')->with('message', 'Logo save successfuly');
     }
 
-    public function headerPage(){
+    public function headerPage(){             //show add header page
         return view('admin.header.header',[
             'categories' =>   Category::where('publication_status', 1)->get(),
         ]);
+    }
+
+    public function newHeader(Request $request){              //create new header page
+       $header_image = $request->file('header_image');
+       $image_name = $header_image->getClientOriginalName();
+       $image_directory = 'header-image/';
+       $header_image->move($image_directory, $image_name);
+
+       $header_info = new Header();
+       $header_info->header_title       = $request->header_title;
+       $header_info->header_content     = $request->header_content;
+       $header_info->header_image       = $request->$image_directory . $image_name;
+       $header_info->publication_status       = $request->publication_status;
+       $header_info->save();
     }
 }

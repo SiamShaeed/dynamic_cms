@@ -30,9 +30,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         @foreach ($categorys as $category)
-                            <li class="nav-item"><a class="nav-link"
+                            <li class="nav-item active"><a class="nav-link text-white"
                                     href="{{route('categoryBlog', ['id'=>$category->id])}}">{{ $category->category_name }}</a></li>
                         @endforeach
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Logout</a>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -16,7 +16,7 @@ Route::post('/logo-save', [frontendController::class, 'logoSave'])->name('logo_s
 
 //Header
 Route::get('/header-page',[frontendController::class, 'headerPage'])->name('add_header');
-
+Route::post('/new-header',[frontendController::class, 'newHeader'])->name('new_header');
 // Category
 Route::get('/category/add-category', [CategoryController::class, 'addCategory'])->name('add_category');
 Route::post('/category/new-category', [CategoryController::class, 'newCategory'])->name('new_category');
