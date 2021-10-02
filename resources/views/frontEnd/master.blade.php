@@ -20,8 +20,9 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
-                    {{-- <a class="navbar-brand" href="{{ route('index') }}">{{$logo->logo_title}}</a> --}}
-                    <a class="navbar-brand" href="{{ route('index') }}"><img src="{{asset('logo-image/'.$logo->logo_image)}}" width="230" height="70" alt=""></a>
+                {{-- <a class="navbar-brand" href="{{ route('index') }}">{{$logo->logo_title}}</a> --}}
+                <a class="navbar-brand" href="{{ route('index') }}"><img
+                        src="{{ asset('logo-image/' . $logo->logo_image) }}" width="230" height="70" alt=""></a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -31,7 +32,8 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         @foreach ($categorys as $category)
                             <li class="nav-item active"><a class="nav-link text-white"
-                                    href="{{route('categoryBlog', ['id'=>$category->id])}}">{{ $category->category_name }}</a></li>
+                                    href="{{ route('categoryBlog', ['id' => $category->id]) }}">{{ $category->category_name }}</a>
+                            </li>
                         @endforeach
                         <li class="nav-item">
                             <a class="nav-link" href="#">Login</a>
